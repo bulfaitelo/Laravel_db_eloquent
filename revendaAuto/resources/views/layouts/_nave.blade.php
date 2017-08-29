@@ -1,6 +1,6 @@
 <nav class="{{config('app.corSite')}}">
   <div class="nav-wrapper container">
-    <a href="/" class="brand-logo">{{config('app.logoSite')}}</a>
+    <a href="{{asset('/')}}" class="brand-logo">{{config('app.logoSite')}}</a>
     <ul id="nav-mobile" class="right hide-on-med-and-down">
       <li><a href="{{ url('/empresa') }}">Empresa</a></li>
       <li><a href="{{ url('/contato') }}">Contato</a></li>
