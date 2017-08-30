@@ -14,4 +14,8 @@ class Cliente extends Model
     	return $this->hasMany('App\Telefone', 'codigo_cliente');
     }
 
+    public function tipos() {
+    	return $this->belongsToMany('App\Tipo', 'db_clientes_has_db_tipos', 'codigo_cliente', 'codigo_tipo');
+    }
+
 }

@@ -67,6 +67,16 @@ Route::get('/aula8banco1', function() {
     dd($telefone->cliente);
 });
 
+Route::get('/aula9banco1', function() {
+    $cliente = App\Cliente::find(1);
+    // dd($cliente->nome);
+    // dd($cliente->tipos);
+
+    $tipo = App\Tipo::find(2);
+    dd($tipo->clientes);
+});
+
+
 Route::get('/', function () {
     $slides = [
       (object)[
