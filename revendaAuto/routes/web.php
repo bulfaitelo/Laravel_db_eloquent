@@ -57,7 +57,15 @@ Route::get('/testeuser', function() {
     dd($lista);
 });
 
+Route::get('/aula8banco1', function() {
+    // $lista = App\Cliente::all();
+    // $lista = App\Telefone::all();
+    // $cliente = App\Cliente::find(1);
+    // dd($cliente->telefone);
 
+    $telefone = App\Telefone::find(1);
+    dd($telefone->cliente);
+});
 
 Route::get('/', function () {
     $slides = [
