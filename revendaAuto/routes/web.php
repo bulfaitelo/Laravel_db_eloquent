@@ -16,7 +16,7 @@ Route::get('/aula5banco1', function() {
     dd($clientes);
 });
 
-Route::get('/aula5banco', function() {
+Route::get('/aula5banco2', function() {
     $cliente = DB::connection('mysql2')->select('select * from db_clientes as cli
       inner join db_telefones as tel on tel.codigo_cliente = cli.codigo
       inner join db_clientes_has_db_tipos as rel_tipos on rel_tipos.codigo_cliente = cli.codigo
@@ -26,6 +26,23 @@ Route::get('/aula5banco', function() {
       ');
     dd($cliente);
 });
+
+Route::get('/aula6banco1', function() {
+    $clientes = DB::connection('mysql2')->table('db_clientes')->get();
+    $cliente = DB::connection('mysql2')->table('db_clientes')->where('codigo', 1)->first();
+    $telefones = DB::connection('mysql2')
+      ->table('db_clientes')
+      ->join('db_telefones', 'db_telefones.codigo_cliente', '=', 'db_clientes.codigo')
+      ->select('db_clientes.*', 'db_telefones.numero')
+      ->where('db_clientes.codigo','3')
+      ->get();
+
+      
+    // dd($clientes);
+    // dd($cliente);
+    dd($telefones);
+});
+
 
 
 Route::get('/', function () {
