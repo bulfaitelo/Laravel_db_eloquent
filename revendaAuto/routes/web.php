@@ -11,6 +11,23 @@
 |
 */
 
+Route::get('/aula5banco1', function() {
+    $clientes = DB::connection('mysql2')->select('select * from db_clientes');
+    dd($clientes);
+});
+
+Route::get('/aula5banco', function() {
+    $cliente = DB::connection('mysql2')->select('select * from db_clientes as cli
+      inner join db_telefones as tel on tel.codigo_cliente = cli.codigo
+      inner join db_clientes_has_db_tipos as rel_tipos on rel_tipos.codigo_cliente = cli.codigo
+      inner join db_tipos as tipo on tipo.codigo = rel_tipos.codigo_tipo
+      where cli.codigo = 3
+
+      ');
+    dd($cliente);
+});
+
+
 Route::get('/', function () {
     $slides = [
       (object)[
