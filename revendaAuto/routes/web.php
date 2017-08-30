@@ -43,6 +43,20 @@ Route::get('/aula6banco1', function() {
     dd($telefones);
 });
 
+Route::get('/testeuser', function() {
+    // $lista = App\User::where('id', 1)->count();
+    $lista = App\User::all();
+
+    // $maria = new App\User();
+    // $maria->name = 'Maria';
+    // $maria->email = 'mara@gmail.com';
+    // $maria->password = bcrypt('123456');
+    // $maria->save();
+
+    $testeMaria = App\User::find(2); 
+    dd($lista);
+});
+
 
 
 Route::get('/', function () {
