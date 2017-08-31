@@ -11,6 +11,37 @@
 |
 */
 
+Route::get('/addregistros', function () {
+    $zero  = App\Categoria::create(['titulo'=>'Zero Km']);
+    $semi  = App\Categoria::create(['titulo'=>'Seminovos']);
+    $usado = App\Categoria::create(['titulo'=>'Usados']);
+
+    $honda = App\Marca::create(['titulo'=> 'Honda', 'descricao'=> 'Carros Honda']);
+    $chevrolet = App\Marca::create(['titulo'=> 'Chevrolet', 'descricao'=> 'Carros Chevrolet']);
+
+    $Camaro = $chevrolet->carros()->create(['titulo'=>'Camaro', 'descricao'=>  'Automatico e Completo', 'ano'=>2017, 'valor'=>150000.00]);
+
+    $Civic = App\Carro::create(['marca_id'=>'1', 'titulo'=>'Civic', 'descricao'=>'Automatico e Completo', 'ano'=>2017, 'valor'=>80000.00]);
+
+    $Camaro->categorias()->attach($usado);
+    $Camaro->categorias()->attach($semi);
+
+    $categorias = [
+      new App\Categoria(['titulo'=> 'Nacional']),
+      new App\Categoria(['titulo'=> 'Destaque']),
+      new App\Categoria(['titulo'=> 'Luxo'])
+    ];
+    $Civic->categorias()->saveMany($categorias);
+    $Civic->categorias()->attach($semi);
+
+    $usuario = App\User::find(1);
+
+    $usuario->carros()->attach($Civic);
+    $usuario->carros()->attach($Camaro);
+
+    return "Registros Criados";
+
+});
 
 
 Route::get('/', function () {

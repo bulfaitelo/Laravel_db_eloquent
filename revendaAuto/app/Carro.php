@@ -14,7 +14,7 @@ class Carro extends Model
     	return $this->belongsTo('App\Marca');
     }
 
-    public function categoria(){
+    public function categorias(){
     	return $this->belongsToMany('App\Categoria');
     }
 

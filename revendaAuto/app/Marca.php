@@ -12,6 +12,6 @@ class Marca extends Model
 
     public function carros()
     {
-    	retusn $this->hasMany('App\Carro');
+    	return $this->hasMany('App\Carro');
     }
 }
