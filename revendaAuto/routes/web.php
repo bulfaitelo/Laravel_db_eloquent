@@ -43,6 +43,30 @@ Route::get('/addregistros', function () {
 
 });
 
+Route::get('/testesregistros', function () {
+    $carro =App\Carro::find(2);
+
+    // dd($carro->marca);
+
+    $marca = App\Marca::find(1);
+
+    // dd($marca->carros);
+
+    // dd($carro->categorias);
+
+    $categoria = App\Categoria::find(2);
+
+    // dd($categoria->carros);
+
+    // dd($carro->usuarios);
+
+    $usuario = App\User::find(1);
+    dd($usuario->carros);
+
+
+});
+
+
 
 Route::get('/', function () {
     $slides = [
