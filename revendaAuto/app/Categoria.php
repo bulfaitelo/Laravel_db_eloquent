@@ -9,4 +9,9 @@ class Categoria extends Model
     protected $fillable = [
         'titulo'
     ];
+
+    public function carros()
+    {
+    	return $this->belongsToMany('App\Carro');
+    }
 }
